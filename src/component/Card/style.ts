@@ -5,6 +5,7 @@ const CardStyled = styled.div`
     width: 100%;
     max-width: 124px;
     margin-bottom: 30px;
+   
     h4{
         margin: 9px 0;
     }
@@ -25,7 +26,7 @@ const Covertyled = styled.div`
     align-items: flex-end;
     justify-content: center;
     position: relative;
-
+    overflow: hidden;
     &:after {
         content: " ";
         display: ${({ isImg }) => (isImg? "none" : "block")};

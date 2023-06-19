@@ -5,7 +5,7 @@ import { Heading } from '../Heading'
 
 const Card = ({title, imgUrl, author, isAvailable}) => {
     return (
-        <CardStyled isAvailable={isAvailable}>
+        <CardStyled className='card'  isAvailable={isAvailable}>
             <Covertyled isImg={imgUrl} isAvailable={isAvailable}>
                 {imgUrl && <Image src={imgUrl} alt={title} />}
                 {!isAvailable && <p>Título indisponível</p>}
