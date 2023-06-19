@@ -3,6 +3,7 @@ import {HeaderStyled} from './style'
 import Image from '../Image'
 import MenuDropDown from '../MenuDropDown'
 import LogoUrl from './../../assets/brand.svg'
+import SearchBar from './../SearchBar'
 
 const Header = () => {
     return (
@@ -12,6 +13,8 @@ const Header = () => {
                 src={LogoUrl} 
                 alt="asd" 
             />
+
+            {/* <SearchBar/> */}
             
             <MenuDropDown/>
         </HeaderStyled>
