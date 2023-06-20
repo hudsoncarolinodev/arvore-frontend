@@ -1,8 +1,8 @@
 import SearchBar from '../component/SearchBar'
-import ProductList from '../component/ProductList'
 import { Heading } from '../component/Heading'
 import {Container} from '../component/Container'
 import {Section, SectionFeatured} from './../style'
+import Bookshelf from '../component/Bookshelf'
 
 const Home = () => {
     
@@ -18,28 +18,28 @@ const Home = () => {
                 <Heading as="h3">Aventura</Heading>
             </Container>
             
-            <ProductList />
+            <Bookshelf bookshelfId="1001" />
         </Section>
 
         <Section>
             <Container>
                 <Heading as="h3">Ação</Heading>
             </Container>
-            <ProductList />
+            <Bookshelf bookshelfId="1002" />
         </Section>
 
         <SectionFeatured>
             <Container>
                 <Heading as="h3">Destaques</Heading>
             </Container>
-            <ProductList />
+            <Bookshelf bookshelfId="1003" />
         </SectionFeatured>
 
         <Section>
             <Container>
                 <Heading as="h3">Infantil</Heading>
             </Container>
-            <ProductList />
+            <Bookshelf bookshelfId="1004" />
         </Section>
     
     </div>
