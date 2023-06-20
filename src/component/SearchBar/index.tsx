@@ -14,7 +14,7 @@ const SearchBar = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
   
-        navigate(`/search/term=${search}`);
+        navigate(`/books/search=${search}`);
     };
 
     return (
