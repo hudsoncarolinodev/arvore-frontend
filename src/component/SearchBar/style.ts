@@ -26,6 +26,8 @@ const Input = styled.input`
 const Button = styled.button`
    position: absolute;
    right: 10px;
+   top:50%;
+   transform: translateY(-50%);
    color: transparent;
    font-size: 0;
    width: 16px;

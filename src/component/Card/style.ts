@@ -46,6 +46,9 @@ const Covertyled = styled.div`
         margin-bottom: 13px;
         width: 100%;
         text-align: center;
+         @media (min-width: 768px){
+            font-size: 16px;
+        }
     }
     img{
         width: 100%;
@@ -66,6 +69,7 @@ const Covertyled = styled.div`
         color: ${props => props.theme.colors.brown};
         background: #F2F1F1;
         padding: 10px 0;
+       
     }
 `;
 

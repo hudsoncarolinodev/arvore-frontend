@@ -28,6 +28,44 @@ const List = styled.div`
             display: none;
         }
     }
+    @media (min-width: 600px) {
+        .card{
+        max-width: 100px;
+        &>div{
+            height: 140px;
+            border-radius: 8px;
+        }
+        &>div img{
+            height: 140px;
+        }
+    }
+    }
+        @media (min-width: 768px) {
+            width: 100%;
+            max-width: 1136px;
+            margin: 0 auto;
+            padding: 0 22px;
+            .card{
+            max-width: 198px;
+            &>div{
+                height: 296px;
+                border-radius: 8px;
+                &:after {
+                    content: " ";
+                    width: 51px;
+                    height: 74px;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    top: 20px;
+                    right: 20px;
+                }
+            }
+            &>div img{
+                height: 296px;
+            }
+        }
+    }
+
 `;
 
 export  {List}

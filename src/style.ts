@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, styled } from 'styled-components';
  
 const GlobalStyle = createGlobalStyle`
 
@@ -38,7 +38,25 @@ const GlobalStyle = createGlobalStyle`
 	body{
 		font-family: 'Inter', sans-serif;
 	}
- 
 `;
- 
-export default GlobalStyle;
+
+const Section = styled.section`
+	padding: 21px 0;
+	h3{
+		margin-bottom: 15px;
+	}
+	@media (min-width: 768px){
+		&.serachBar{
+			display: none;
+		}
+	}
+	
+`;
+const SectionFeatured = styled(Section)`
+	background-color: ${props => props.theme.colors.gren['200']};
+	h3{
+		color: ${props => props.theme.colors.purple['100']};
+	}
+`;
+
+export  {GlobalStyle, Section, SectionFeatured};

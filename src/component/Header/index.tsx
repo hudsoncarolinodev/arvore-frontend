@@ -1,5 +1,5 @@
 
-import {HeaderStyled} from './style'
+import {HeaderStyled, HeaderContainer} from './style'
 import Image from '../Image'
 import MenuDropDown from '../MenuDropDown'
 import LogoUrl from './../../assets/brand.svg'
@@ -7,17 +7,19 @@ import SearchBar from './../SearchBar'
 
 const Header = () => {
     return (
-        <HeaderStyled>
+        <HeaderContainer>
+            <HeaderStyled>
             
-            <Image 
-                src={LogoUrl} 
-                alt="asd" 
-            />
+                <Image 
+                    src={LogoUrl} 
+                    alt="asd" 
+                />
 
-            {/* <SearchBar/> */}
-            
-            <MenuDropDown/>
-        </HeaderStyled>
+                <SearchBar/>
+                
+                <MenuDropDown/>
+            </HeaderStyled>
+        </HeaderContainer>
     )
 }
 

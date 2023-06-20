@@ -3,6 +3,8 @@ import {List} from './style'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Card from '../Card';
+import Image from './../../assets/image.png'
+
 const ProductList = () => {
     return (
         <List>
@@ -11,11 +13,12 @@ const ProductList = () => {
                 slidesPerView={5}
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper) => console.log(swiper)}
+                
                 >
                 <SwiperSlide>
                     <Card 
                         title="O menino Nelson Mandela" 
-                        imgUrl="https://books.google.com/books/content?id=L0rrrfE0bOsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" 
+                        imgUrl={Image} 
                         author="Viviana Mazza" 
                         isAvailable={true}
                     />
@@ -31,7 +34,7 @@ const ProductList = () => {
                 <SwiperSlide>
                     <Card 
                         title="O menino Nelson Mandela" 
-                        imgUrl="https://books.google.com/books/content?id=L0rrrfE0bOsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" 
+                        imgUrl={Image} 
                         author="Viviana Mazza" 
                         isAvailable={false}
                     />
@@ -39,7 +42,7 @@ const ProductList = () => {
                 <SwiperSlide>
                     <Card 
                         title="O menino Nelson Mandela" 
-                        imgUrl="https://books.google.com/books/content?id=L0rrrfE0bOsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" 
+                        imgUrl={Image} 
                         author="Viviana Mazza" 
                         isAvailable={true}
                     />
@@ -55,7 +58,7 @@ const ProductList = () => {
                 <SwiperSlide>
                     <Card 
                         title="O menino Nelson Mandela" 
-                        imgUrl="https://books.google.com/books/content?id=L0rrrfE0bOsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" 
+                        imgUrl={Image} 
                         author="Viviana Mazza" 
                         isAvailable={false}
                     />
