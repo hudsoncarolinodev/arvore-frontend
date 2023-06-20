@@ -6,8 +6,8 @@ import Bookshelf from '../component/Bookshelf'
 import { useParams } from 'react-router-dom';
 
 const Category = () => {
-    const {term} = useParams();
-    console.log(term)
+    const {search} = useParams();
+    console.log(search)
     return <div className='Category'>
 
         <Section className='serachBar'>
