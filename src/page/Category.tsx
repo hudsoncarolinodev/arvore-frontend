@@ -3,9 +3,11 @@ import { Heading } from '../component/Heading'
 import {Container} from '../component/Container'
 import {Section, SectionFeatured} from '../style'
 import Bookshelf from '../component/Bookshelf'
+import { useParams } from 'react-router-dom';
 
 const Category = () => {
-    
+    const {term} = useParams();
+    console.log(term)
     return <div className='Category'>
 
         <Section className='serachBar'>
