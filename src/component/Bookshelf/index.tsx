@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ProductList from '../ProductList';
 import { api } from '../../services/axios';
 
 const Bookshelf = ({ bookshelfId }) => {
     
-    const [books, setBooks] = useState([]);
+    const [books, setBooks] = useState<unknown>([]);
   
     useEffect(() => {
       const fetchBooks = async () => {
         try {
           const items = await api.getBookshelves(bookshelfId);
+          
           setBooks(items);
         } catch (error) {
           console.error('Error fetching books:', error);

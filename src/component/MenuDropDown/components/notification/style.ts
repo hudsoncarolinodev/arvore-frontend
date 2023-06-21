@@ -1,8 +1,7 @@
-import { styled } from 'styled-components';
+import { DefaultTheme,styled } from 'styled-components';
 import NotificationIcon from './../../../../assets/notificationIcon.svg';
-import {InotificatonIconProp} from './../../../../interface/InotificatonProp'
 
-const NotificationStyled = styled.div<InotificatonIconProp>`
+const NotificationStyled = styled.div<DefaultTheme>`
     background-image: url(${NotificationIcon});
     width: 24px;
     height: 24px;

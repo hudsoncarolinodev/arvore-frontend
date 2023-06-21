@@ -1,19 +1,58 @@
-import React, { createContext, useState, useEffect } from 'react';
+import { createContext, useState } from 'react';
 import { api } from '../services/axios';
 
-const SearchResultsContext = createContext({} as SearchResultsContext);
+interface BookType {
+  volumeInfo: {
+      title: string;
+      imageLinks: {
+          thumbnail: string;
+      }
+      authors: string[];
+
+  }
+  saleInfo: {
+      saleability: string;
+      listPrice: {
+        amount: string;
+      }
+  }
+  accessInfo: {
+    epub: {
+      isAvailable: boolean
+    },
+    pdf: {
+      isAvailable: boolean
+    },
+  }
+}
+
+interface SearchResultsProviderType {
+  results: BookType[];
+  resultsFilter: BookType[];
+  statusFilter: number;
+  termFilter: string;
+  setFilterTerm: (termSearch: {
+    rangePrice: string[];
+    availability: string[];
+    formats: string[];
+  }) => void;
+  searchTerm: (term: string, page?: number) => void;
+  clearFilter: () => void;
+}
+
+const SearchResultsContext = createContext<SearchResultsProviderType | undefined>(undefined);
 
 const SearchResultsProvider = ({ children }) => {
-  const [results, setResults] = useState([])
-  const [resultsFilter, setResultsFilter] = useState([])
+  const [results, setResults] = useState<BookType[]>([])
+  const [resultsFilter, setResultsFilter] = useState<BookType[]>([])
   const [statusFilter, setStatusFilter] = useState(0)
   const [termFilter, setTermFilter] = useState("todos")
  
   const searchTerm = async (term = termFilter, page) => {
     setTermFilter(term)
-    const response = await api.searchBooks(term, page)
-    setResults([...response]);
-    setResultsFilter([...response]);
+    const response = await api.searchBooks(term, page) as BookType[];
+    setResults(response);
+    setResultsFilter(response);
   };
 
   const setFilterTerm = (termSearch) => {

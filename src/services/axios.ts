@@ -8,6 +8,20 @@ const userId = import.meta.env.VITE_USER_ID;
 const apiUrl = import.meta.env.VITE_API_URL;
 const axiosInstance = axios.create({ baseURL: apiUrl });
 
+interface BookType {
+  volumeInfo: {
+      title: string;
+      imageLinks: {
+          thumbnail: string;
+      }
+      authors: string[];
+
+  }
+  saleInfo: {
+      saleability: string;
+  }
+}
+
 axiosInstance.interceptors.request.use(
   (config) => config,
   (error) => Promise.reject(error)
@@ -32,7 +46,7 @@ export const api = {
       return getBookshelvesUseCase(response);
     },
   
-    async searchBooks(query: string, page:string): Promise<AxiosResponse> {
+    async searchBooks(query: string, page:string): Promise<BookType[]> {
       const endpoint = 'volumes';
       const parameters = {
         q: `search+${query}`,
@@ -45,7 +59,6 @@ export const api = {
         headers: { 'Content-Type': 'application/json' },
         params: parameters,
       })
-      console.log(response.data)
       return searchBookshelvesUseCase(response)
     },
     

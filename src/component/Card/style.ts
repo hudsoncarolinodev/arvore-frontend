@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { DefaultTheme, styled } from 'styled-components';
 import ImgPlaceHolder from './../../assets/Placeholder.svg'
 
 const CardStyled = styled.div`
@@ -16,7 +16,7 @@ const CardStyled = styled.div`
    
 `;
 
-const Covertyled = styled.div`
+const Covertyled = styled.div<DefaultTheme>`
     height: 185px;
     box-shadow: 0px 8px 10px 1px rgba(5, 59, 75, 0.06);
     border-radius: 8px 16px 16px 8px;
@@ -29,7 +29,7 @@ const Covertyled = styled.div`
     overflow: hidden;
     &:after {
         content: " ";
-        display: ${({ isImg }) => (isImg? "none" : "block")};
+        display: ${(prop) => (prop.isImg? "none" : "block")};
         background-image: url(${ImgPlaceHolder});
         width: 51px;
         height: 74px;

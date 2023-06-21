@@ -10,7 +10,9 @@ const Card = ({title, imgUrl, authors, isAvailable}) => {
         'NOT_FOR_SALE':false
     }
     return (
-        <CardStyled className='card'  isAvailable={saleability[isAvailable]}>
+
+        <CardStyled className='card'>
+            
             <Covertyled isImg={imgUrl} isAvailable={saleability[isAvailable]}>
                 {imgUrl && <Image src={imgUrl} alt={title} />}
                 {!saleability[isAvailable] && <p>Título indisponível</p>}

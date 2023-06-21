@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef, useEffect,useCallback } from 'react';
+import { useState, useContext, useRef, useEffect,useCallback } from 'react';
 import SearchBar from '../component/SearchBar'
 import { Heading } from '../component/Heading'
 import {Container} from '../component/Container'
