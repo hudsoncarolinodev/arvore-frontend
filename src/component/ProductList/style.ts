@@ -3,6 +3,25 @@ import { styled } from 'styled-components';
 const List = styled.div`
     overflow: hidden;
     padding-left: 22px;
+    position: relative;
+    .swiper-button-prev,
+    .swiper-button-next{
+        width: 40px;
+        height: 40px;
+        background-color: #fff;
+        border-radius: 100%;
+        cursor: pointer;
+        color: rgba(64, 106, 118, 1);
+        &:after{
+            font-size: 17px;
+            font-weight: bold;
+        }
+        
+    }
+    div.swiper-slide{
+        display: flex;
+        justify-content: center;
+    }
     .card{
         max-width: 57px;
         &>div{

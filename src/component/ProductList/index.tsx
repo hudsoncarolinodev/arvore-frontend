@@ -1,9 +1,14 @@
 
-import {List} from './style'
+import { List } from './style';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import Card from '../Card';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import SwiperCore, { Navigation, Pagination } from 'swiper';
 
+SwiperCore.use([Navigation, Pagination]);
+
+import Card from '../Card';
 
 const ProductList = (props) => {
     const {books} = props
@@ -12,8 +17,8 @@ const ProductList = (props) => {
             <Swiper
                 spaceBetween={7}
                 slidesPerView={5}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
+                navigation={true}
+                pagination={false}
                 >
                 {
                     books.map(({volumeInfo,saleInfo}, index)=>(

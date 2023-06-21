@@ -5,6 +5,8 @@
   "type": "module",
   "homepage": "https://hudsoncarolinodev.github.io/arvore-frontend",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "vite",
     "build": "tsc && vite build",
     "yarn ": "gh-pages -d build",

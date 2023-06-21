@@ -1,5 +1,5 @@
 
-import { useState, useContext } from 'react';
+import { useState, useContext, useRef} from 'react';
 import { 
     Aside, 
     Form,
@@ -18,6 +18,7 @@ import { SearchResultsContext } from '../../context/SearchResultsContext';
 
 const Sidebar = ({handleStatusSidebar, toggle}) => {
     
+    const sidebar = useRef(null)
     const {statusFilter, setFilterTerm, clearFilter } = useContext(SearchResultsContext);
 
     const [formValues, setFormValues] = useState({
@@ -53,14 +54,18 @@ const Sidebar = ({handleStatusSidebar, toggle}) => {
     const handleClearFilter = () =>{
         clearFilter()
         handleStatusSidebar()
+        const inputs = sidebar.current.querySelectorAll("input")
+        inputs.forEach((input)=>{
+            input.checked = false
+        })
     }
-    console.log(statusFilter)
+
     return (
         <Aside className={toggle?"open":"close"}>
             <CloseSidebar onClick={closeSidebar} className='close'>Close</CloseSidebar>
             <Heading as="h2">Filtrar</Heading>
             {statusFilter > 0 && <ClearFilter className='buttonFilter' onClick={handleClearFilter}>Limpar Filtro</ClearFilter>}
-            <Form  onSubmit={handleSubmit}>
+            <Form  onSubmit={handleSubmit} ref={sidebar}>
 
                 <FormGroup>
 

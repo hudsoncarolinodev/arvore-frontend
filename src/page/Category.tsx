@@ -8,8 +8,9 @@ import Sidebar from './../component/Sidebar'
 import {Button, ClearFilter} from './../style'
 import {SearchResultsContext} from './../context/SearchResultsContext'
 import { useParams } from 'react-router-dom';
+
 const Category = () => {
-     const divInfityScroll = useRef(null)
+    const divInfityScroll = useRef(null)
     const { search } = useParams();
     const { resultsFilter, searchTerm, termFilter, clearFilter, statusFilter } = useContext(SearchResultsContext);
     const [toggleStatus, setToggleStatus] = useState(false)
