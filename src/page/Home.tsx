@@ -8,7 +8,7 @@ const Home = () => {
     
     return <div className='home'>
 
-        <Section className='serachBar'>
+        <Section className='hidden-dektop'>
             <Container>
                 <SearchBar/>
             </Container>

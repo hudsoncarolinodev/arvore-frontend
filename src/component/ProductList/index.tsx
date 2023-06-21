@@ -7,7 +7,6 @@ import Card from '../Card';
 
 const ProductList = (props) => {
     const {books} = props
-    console.log(books)
     return (
         <List>
             <Swiper

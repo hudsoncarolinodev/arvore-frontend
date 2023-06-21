@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./page/Home";
 import Category from "./page/Category";
 import Header from "./component/Header";
+
 function App() {
   return (
      <>
@@ -10,7 +11,8 @@ function App() {
                <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/books/:search" element={<Category />} />
-               </Routes>
+                    <Route path="/books/" element={<Category />} />
+               </Routes>          
           </BrowserRouter>
      </>
   )

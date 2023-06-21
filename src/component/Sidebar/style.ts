@@ -8,21 +8,27 @@ const Aside = styled.aside`
     top: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 1;
+    z-index: 3;
     padding: 38px 16px;
     transition: .5s;
     &.close{
-        left: -100%;
+        left: -200%;
         transition: .5s;
     }
-
+    @media (min-width: 768px){
+		position: initial;
+        height: initial;
+        &>button{
+            display: none;
+        }
+	}
 `;
 
 const Form = styled.form`
    margin-top: 30px;
    display: flex;
    flex-direction: column;
-   height: 90%;
+   height: 80%;
  
 `;
 

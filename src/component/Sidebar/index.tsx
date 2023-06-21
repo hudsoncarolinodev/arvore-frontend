@@ -1,4 +1,5 @@
-import React, {useState } from 'react';
+
+import React, { useState, useContext, useEffect } from 'react';
 import { 
     Aside, 
     Form,
@@ -10,18 +11,20 @@ import {
     Legend,
     CloseSidebar
 } from './style'
-import {Button} from './../../style'
+import {Button, ClearFilter} from './../../style'
 
 import { Heading } from '../Heading'
+import { SearchResultsContext } from '../../context/SearchResultsContext';
 
 const Sidebar = ({handleStatusSidebar, toggle}) => {
     
+    const {statusFilter, setFilterTerm, clearFilter } = useContext(SearchResultsContext);
 
     const [formValues, setFormValues] = useState({
         rangePrice: [],
         availability: [],
         formats: [],
-    });
+    })
 
     const handleChange = (event) => {
        
@@ -33,25 +36,30 @@ const Sidebar = ({handleStatusSidebar, toggle}) => {
         }else{
             updatedValues[name] = [];
         }
-      
+       
         setFormValues(updatedValues);
     };
     
     const handleSubmit = (event) => {
         event.preventDefault();
-
-        console.log(formValues)
+        setFilterTerm(formValues)
+        closeSidebar()
     };
     
     const closeSidebar = () =>{
         handleStatusSidebar()
     }
 
+    const handleClearFilter = () =>{
+        clearFilter()
+        handleStatusSidebar()
+    }
+    
     return (
         <Aside className={toggle?"open":"close"}>
             <CloseSidebar onClick={closeSidebar}>Close</CloseSidebar>
             <Heading as="h2">Filtrar</Heading>
-           
+            {statusFilter > 0 && <ClearFilter onClick={handleClearFilter}>Limpar Filtro</ClearFilter>}
             <Form  onSubmit={handleSubmit}>
 
                 <FormGroup>
@@ -112,7 +120,7 @@ const Sidebar = ({handleStatusSidebar, toggle}) => {
                             onChange={(e)=>handleChange(e)}  
                             id="available" 
                             name='availability'
-                            value="available"
+                            value="FOR_SALE"
                         />
                         <Checkbox/>
                     </CheckboxContainer>
@@ -123,7 +131,7 @@ const Sidebar = ({handleStatusSidebar, toggle}) => {
                             onChange={(e)=>handleChange(e)}  
                             id="unavailable" 
                             name='availability'
-                            value="availability"    
+                            value="NOT_FOR_SALE"    
                         />
                         <Checkbox/>
                     </CheckboxContainer>
@@ -138,7 +146,7 @@ const Sidebar = ({handleStatusSidebar, toggle}) => {
                             onChange={(e)=>handleChange(e)}  
                             id="e-pub" 
                             name='formats'
-                            value="e-pub"  
+                            value="epub"  
                         />
                         <Checkbox/>
                     </CheckboxContainer>
@@ -149,7 +157,7 @@ const Sidebar = ({handleStatusSidebar, toggle}) => {
                             onChange={(e)=>handleChange(e)}  
                             id="PDF" 
                             name='formats'
-                            value="PDF"      
+                            value="pdf"      
                         />
                         <Checkbox/>
                     </CheckboxContainer>

@@ -1,6 +1,7 @@
 
 import axios, {AxiosResponse } from 'axios';
 import {getBookshelvesUseCase} from '../useCase/getBookshelvesUseCase'
+import {searchBookshelvesUseCase} from '../useCase/searchBookshelvesUseCase'
 
 const apiKey = import.meta.env.VITE_API_KEY;
 const userId = import.meta.env.VITE_USER_ID;
@@ -31,16 +32,18 @@ export const api = {
       return getBookshelvesUseCase(response);
     },
   
-    searchBooks(query: string): Promise<AxiosResponse> {
+    async searchBooks(query: string): Promise<AxiosResponse> {
       const endpoint = 'volumes';
       const parameters = {
-        q: query,
+        q: `search+${query}`,
         key: apiKey,
       };
-      return axiosInstance.get(endpoint, {
+      
+      const response = await axiosInstance.get(endpoint, {
         headers: { 'Content-Type': 'application/json' },
         params: parameters,
-      });
+      })
+      return searchBookshelvesUseCase(response)
     },
     
 };

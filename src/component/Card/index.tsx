@@ -4,7 +4,7 @@ import Image from '../Image'
 import { Heading } from '../Heading'
 
 const Card = ({title, imgUrl, authors, isAvailable}) => {
-    console.log(isAvailable)
+   
     const saleability = {
         'FOR_SALE':true,
         'NOT_FOR_SALE':false
@@ -17,7 +17,7 @@ const Card = ({title, imgUrl, authors, isAvailable}) => {
             </Covertyled>
             {title && <Heading as="h4">{title}</Heading>}
 
-            {authors && authors.map((author) => <p>{author}</p>)}
+            {authors && authors.map((author, index) => <p key={index}>{author}</p>)}
         </CardStyled>
     )
 }

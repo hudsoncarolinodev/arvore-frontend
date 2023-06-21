@@ -1,14 +1,19 @@
+import React, { useState, useContext } from 'react';
 import SearchBar from '../component/SearchBar'
 import { Heading } from '../component/Heading'
 import {Container} from '../component/Container'
-import {Section, SectionFeatured} from '../style'
-import Bookshelf from '../component/Bookshelf'
-import { useParams } from 'react-router-dom';
+import {Section} from '../style'
+import BookshelfGrid from '../component/BookshelfGrid'
 import Sidebar from './../component/Sidebar'
 import {Button} from './../style'
-import { useState } from 'react'
-
+import {SearchResultsContext} from './../context/SearchResultsContext'
+import { useParams } from 'react-router-dom';
 const Category = () => {
+   
+    const {search} = useParams();
+    
+    const {resultsFilter} = useContext(SearchResultsContext);
+   
 
     const [toggleStatus, setToggleStatus] = useState(false)
    
@@ -19,24 +24,23 @@ const Category = () => {
 
     return <div className='Category'>
 
-        <Section className='serachBar'>
+        <Section className='hidden-dektop'>
             <Container>
                 <SearchBar/>
             </Container>
         </Section>
 
-        <Section>
+        <Section className='grid'>
+            <Sidebar handleStatusSidebar={handleStatusSidebar} toggle={toggleStatus}/>
             <Container>
-                <Sidebar handleStatusSidebar={handleStatusSidebar} toggle={toggleStatus}/>
-                <Heading as="h3">Resultados para ”menino”:</Heading>
-                <Button onClick={()=>handleStatusSidebar()}>FILTRAR</Button>
+
+                <Heading as="h3">Resultados para ”{search}”:</Heading>
+                <Button className='hidden-dektop' onClick={()=>handleStatusSidebar()}>FILTRAR</Button>
+                <BookshelfGrid data={resultsFilter}/>
+
             </Container>
         </Section>
       
-
-
-      
-    
     </div>
 }
 
