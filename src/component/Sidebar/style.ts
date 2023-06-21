@@ -29,6 +29,9 @@ const Form = styled.form`
    display: flex;
    flex-direction: column;
    height: 80%;
+   @media (min-width: 768px){
+        height: initial
+	}
  
 `;
 
