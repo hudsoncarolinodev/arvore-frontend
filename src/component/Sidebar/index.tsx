@@ -113,7 +113,7 @@ const Sidebar = ({handleStatusSidebar, toggle}) => {
                             onChange={(e)=>handleChange(e)}  
                             id="available" 
                             name='availability'
-                            value="available"
+                            value="FOR_SALE"
                         />
                         <Checkbox/>
                     </CheckboxContainer>
@@ -124,7 +124,7 @@ const Sidebar = ({handleStatusSidebar, toggle}) => {
                             onChange={(e)=>handleChange(e)}  
                             id="unavailable" 
                             name='availability'
-                            value="availability"    
+                            value="NOT_FOR_SALE"    
                         />
                         <Checkbox/>
                     </CheckboxContainer>
@@ -139,7 +139,7 @@ const Sidebar = ({handleStatusSidebar, toggle}) => {
                             onChange={(e)=>handleChange(e)}  
                             id="e-pub" 
                             name='formats'
-                            value="e-pub"  
+                            value="epub"  
                         />
                         <Checkbox/>
                     </CheckboxContainer>
@@ -150,7 +150,7 @@ const Sidebar = ({handleStatusSidebar, toggle}) => {
                             onChange={(e)=>handleChange(e)}  
                             id="PDF" 
                             name='formats'
-                            value="PDF"      
+                            value="pdf"      
                         />
                         <Checkbox/>
                     </CheckboxContainer>
