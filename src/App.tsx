@@ -11,6 +11,7 @@ function App() {
                <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/books/:search" element={<Category />} />
+                    <Route path="/books/" element={<Category />} />
                </Routes>          
           </BrowserRouter>
      </>
