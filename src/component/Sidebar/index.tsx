@@ -8,16 +8,17 @@ import {
     Checkbox,
     FormGroup,
     Legend,
-    Button
+    CloseSidebar
 } from './style'
+import {Button} from './../../style'
 
 import { Heading } from '../Heading'
 import { SearchResultsContext } from '../../context/SearchResultsContext';
 
-const Sidebar = () => {
+const Sidebar = ({handleStatusSidebar, toggle}) => {
     
     const {setFilterTerm } = useContext(SearchResultsContext);
-
+    
     const [formValues, setFormValues] = useState({
         rangePrice: [],
         availability: [],
@@ -29,11 +30,10 @@ const Sidebar = () => {
         const { name, value, checked } = event.target;
         const updatedValues = { ...formValues };
         
-       
-        if (checked) {
-        updatedValues[name] = [value]; 
-        } else {
-        updatedValues[name] = [];
+        if(checked) {
+            updatedValues[name] = [value]; 
+        }else{
+            updatedValues[name] = [];
         }
       
         setFormValues(updatedValues);
@@ -44,8 +44,13 @@ const Sidebar = () => {
         setFilterTerm(formValues)
     };
     
+    const closeSidebar = () =>{
+        handleStatusSidebar()
+    }
+
     return (
-        <Aside>
+        <Aside className={toggle?"open":"close"}>
+            <CloseSidebar onClick={closeSidebar}>Close</CloseSidebar>
             <Heading as="h2">Filtrar</Heading>
            
             <Form  onSubmit={handleSubmit}>

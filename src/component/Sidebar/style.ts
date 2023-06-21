@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import Close from './../../assets/cancel.svg'
 
 const Aside = styled.aside`
     background-color: ${props => props.theme.colors.white};
@@ -9,6 +10,11 @@ const Aside = styled.aside`
     height: 100vh;
     z-index: 1;
     padding: 38px 16px;
+    transition: .5s;
+    &.close{
+        left: -100%;
+        transition: .5s;
+    }
 
 `;
 
@@ -58,16 +64,7 @@ const CheckboxContainer = styled.div`
     cursor: pointer;
 `;
 
-const Button = styled.button`
-    width: 288px;
-    height: 55px;
-    border-radius: 10px;
-    text-transform: uppercase;
-    background-color: ${props => props.theme.colors.purple['200']};
-    color: ${props => props.theme.colors.white};
-    cursor: pointer;
-   
-`;
+
 
 
 const Checkbox = styled.span`
@@ -89,7 +86,19 @@ const Checkbox = styled.span`
         align-items: center;
     }
 `;
-
+const CloseSidebar = styled.button`
+    background-image: url(${Close});
+    width: 10px;
+    height: 10px;
+    display: block;
+    font-size: 0;
+    color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: right;
+    background-size: 10px;
+    cursor: pointer;
+`;
 export  {
     Aside, 
     Form,
@@ -99,5 +108,5 @@ export  {
     Checkbox,
     FormGroup,
     Legend,
-    Button
+    CloseSidebar
 }
