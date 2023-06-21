@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from "react-router-dom";
 import {Form, Input, Button} from './style'
-
+import {SearchResultsContext} from '../../context/SearchResultsContext'
 const SearchBar = () => {
-    
+    const {searchTerm } = useContext(SearchResultsContext);
     const navigate = useNavigate();
     const [search, setSearch] = useState("");
 
@@ -13,8 +13,8 @@ const SearchBar = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-  
         navigate(`/books/search=${search}`);
+        searchTerm(search)
     };
 
     return (

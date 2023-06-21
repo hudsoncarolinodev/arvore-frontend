@@ -4,7 +4,7 @@ import Image from '../Image'
 import { Heading } from '../Heading'
 
 const Card = ({title, imgUrl, authors, isAvailable}) => {
-    console.log(isAvailable)
+   
     const saleability = {
         'FOR_SALE':true,
         'NOT_FOR_SALE':false

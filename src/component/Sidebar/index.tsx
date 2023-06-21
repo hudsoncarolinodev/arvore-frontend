@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { 
     Aside, 
     Form,
@@ -12,9 +12,12 @@ import {
 } from './style'
 
 import { Heading } from '../Heading'
+import { SearchResultsContext } from '../../context/SearchResultsContext';
 
 const Sidebar = () => {
     
+    const {setFilterTerm } = useContext(SearchResultsContext);
+
     const [formValues, setFormValues] = useState({
         rangePrice: [],
         availability: [],
@@ -38,8 +41,7 @@ const Sidebar = () => {
     
     const handleSubmit = (event) => {
         event.preventDefault();
-
-        console.log(formValues)
+        setFilterTerm(formValues)
     };
     
     return (
