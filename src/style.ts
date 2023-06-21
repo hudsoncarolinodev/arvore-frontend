@@ -38,6 +38,11 @@ const GlobalStyle = createGlobalStyle`
 	body{
 		font-family: 'Inter', sans-serif;
 	}
+	@media (min-width: 768px){
+		.hidden-dektop{
+			display: none;
+		}
+	}
 `;
 
 const Section = styled.section`
@@ -45,9 +50,24 @@ const Section = styled.section`
 	h3{
 		margin-bottom: 15px;
 	}
+	
 	@media (min-width: 768px){
-		&.serachBar{
+		&.hidden-dektop{
 			display: none;
+		}
+		&.grid{
+			display: flex;
+			justify-content: space-between;
+			max-width: 1200px;
+			margin: 0 auto;
+			&>aside{
+				max-width: 230px;
+			}
+			&>div{
+				max-width: 744px;
+				padding: 0;
+				margin: 0;
+			}
 		}
 	}
 	
@@ -60,7 +80,8 @@ const SectionFeatured = styled(Section)`
 `;
 
 const Button = styled.button`
-    width: 288px;
+    width: 100%;
+	max-width: 288px;
     height: 55px;
     border-radius: 10px;
     text-transform: uppercase;
