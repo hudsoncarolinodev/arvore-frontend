@@ -5,9 +5,18 @@ import {Section, SectionFeatured} from '../style'
 import Bookshelf from '../component/Bookshelf'
 import { useParams } from 'react-router-dom';
 import Sidebar from './../component/Sidebar'
+import {Button} from './../style'
+import { useState } from 'react'
+
 const Category = () => {
-    const {search} = useParams();
-    console.log(search)
+
+    const [toggleStatus, setToggleStatus] = useState(false)
+   
+    const handleStatusSidebar = () =>{
+       
+        setToggleStatus(!toggleStatus)
+    }
+
     return <div className='Category'>
 
         <Section className='serachBar'>
@@ -18,8 +27,9 @@ const Category = () => {
 
         <Section>
             <Container>
-                <Sidebar/>
+                <Sidebar handleStatusSidebar={handleStatusSidebar} toggle={toggleStatus}/>
                 <Heading as="h3">Resultados para ”menino”:</Heading>
+                <Button onClick={()=>handleStatusSidebar()}>FILTRAR</Button>
             </Container>
         </Section>
       

@@ -59,4 +59,14 @@ const SectionFeatured = styled(Section)`
 	}
 `;
 
-export  {GlobalStyle, Section, SectionFeatured};
+const Button = styled.button`
+    width: 288px;
+    height: 55px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    background-color: ${props => props.theme.colors.purple['200']};
+    color: ${props => props.theme.colors.white};
+    cursor: pointer;
+`;
+
+export  {GlobalStyle, Section, SectionFeatured, Button};
