@@ -54,12 +54,12 @@ const Sidebar = ({handleStatusSidebar, toggle}) => {
         clearFilter()
         handleStatusSidebar()
     }
-    
+    console.log(statusFilter)
     return (
         <Aside className={toggle?"open":"close"}>
-            <CloseSidebar onClick={closeSidebar}>Close</CloseSidebar>
+            <CloseSidebar onClick={closeSidebar} className='close'>Close</CloseSidebar>
             <Heading as="h2">Filtrar</Heading>
-            {statusFilter > 0 && <ClearFilter onClick={handleClearFilter}>Limpar Filtro</ClearFilter>}
+            {statusFilter > 0 && <ClearFilter className='buttonFilter' onClick={handleClearFilter}>Limpar Filtro</ClearFilter>}
             <Form  onSubmit={handleSubmit}>
 
                 <FormGroup>

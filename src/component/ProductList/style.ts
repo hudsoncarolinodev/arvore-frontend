@@ -40,7 +40,7 @@ const List = styled.div`
         }
     }
     }
-        @media (min-width: 768px) {
+    @media (min-width: 768px) {
             width: 100%;
             max-width: 1136px;
             margin: 0 auto;

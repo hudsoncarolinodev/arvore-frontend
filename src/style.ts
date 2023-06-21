@@ -74,8 +74,10 @@ const Section = styled.section`
 `;
 const SectionFeatured = styled(Section)`
 	background-color: ${props => props.theme.colors.gren['200']};
+	padding: 40px 0;
 	h3{
 		color: ${props => props.theme.colors.purple['100']};
+		font-size: 22px;
 	}
 `;
 

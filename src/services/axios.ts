@@ -32,17 +32,20 @@ export const api = {
       return getBookshelvesUseCase(response);
     },
   
-    async searchBooks(query: string): Promise<AxiosResponse> {
+    async searchBooks(query: string, page:string): Promise<AxiosResponse> {
       const endpoint = 'volumes';
       const parameters = {
         q: `search+${query}`,
         key: apiKey,
+        startIndex:0,
+        maxResults: page,
       };
-      
+     // volumes?q=Query&startIndex=0&maxResults=40
       const response = await axiosInstance.get(endpoint, {
         headers: { 'Content-Type': 'application/json' },
         params: parameters,
       })
+      console.log(response.data)
       return searchBookshelvesUseCase(response)
     },
     

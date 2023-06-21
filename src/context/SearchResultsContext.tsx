@@ -9,9 +9,9 @@ const SearchResultsProvider = ({ children }) => {
   const [statusFilter, setStatusFilter] = useState(0)
   const [termFilter, setTermFilter] = useState("todos")
  
-  const searchTerm = async (term = termFilter) => {
+  const searchTerm = async (term = termFilter, page) => {
     setTermFilter(term)
-    const response = await api.searchBooks(termFilter)
+    const response = await api.searchBooks(term, page)
     setResults([...response]);
     setResultsFilter([...response]);
   };
@@ -60,16 +60,13 @@ const SearchResultsProvider = ({ children }) => {
     setResultsFilter(results)
   }
 
-  useEffect(()=>{
-    searchTerm()
-  },[])
-
   return (
     <SearchResultsContext.Provider value={
         { 
           results, 
           resultsFilter,
           statusFilter,
+          termFilter,
           setFilterTerm,
           searchTerm,
           clearFilter,

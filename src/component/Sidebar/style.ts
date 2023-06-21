@@ -15,11 +15,17 @@ const Aside = styled.aside`
         left: -200%;
         transition: .5s;
     }
+    .buttonFilter{
+        display: none;
+    }
     @media (min-width: 768px){
 		position: initial;
         height: initial;
-        &>button{
+        &>button.close{
             display: none;
+        }
+        .buttonFilter{
+            display: block;
         }
 	}
 `;
@@ -28,7 +34,7 @@ const Form = styled.form`
    margin-top: 30px;
    display: flex;
    flex-direction: column;
-   height: 80%;
+   height: 87%;
    @media (min-width: 768px){
         height: initial
 	}

@@ -6,6 +6,7 @@ const Grid = styled.div`
     justify-content: space-between;
     align-items: start;
     gap: 10px;
+    padding-top: 40px;
     .card{
         max-width: 124px;
         &>div{
@@ -24,8 +25,8 @@ const Grid = styled.div`
         &>div img{
             height: 185px;
         }
-       
     }
+    
 `;
 
 export  {Grid}
